@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <div class="head">
-      <!-- <img src="../assets/logo.png" alt class="logo" /> -->
+      <img src="../assets/logo.png" alt class="logo" />
       <el-menu
         :default-active="activeIndex"
-        class="el-menu-demo"
+        class="nav"
         mode="horizontal"
         @select="handleSelect"
       >
@@ -55,7 +55,7 @@
           </div>
         </li>
         <li></li>
-      </ul> -->
+      </ul>-->
     </div>
   </div>
 </template>
@@ -71,13 +71,24 @@
   height: 120px;
   border: 1px solid #f0f0f0;
 }
-/* .logo {
+.logo {
   height: 60px;
-  margin: 30px;
+  margin: 30px 100px;
   float: left;
 }
+.nav {
+  height: 120px;
+  margin-left: 200px;
+  left: 500px;
+  font-size: 20px;
+}
+.el-menu--horizontal>.el-sub-menu .el-sub-menu__title{
+  font-size: 20px;
+}
+.el-menu--horizontal>.el-menu-item{
+  font-size: 20px;
+}
 .el-menu--horizontal > .el-menu-item {
-  width: 50%;
   border-bottom: none;
   height: 1rem;
   line-height: 0.5rem;
@@ -86,7 +97,7 @@
 .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: none;
 }
-ul {
+/* ul {
   height: 100px;
   float: right;
 }
