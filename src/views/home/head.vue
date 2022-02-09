@@ -5,43 +5,50 @@
             <li>
                 <span>首页</span>
             </li>
-            <li @mouseenter="aboutListShow = true" @mouseleave="aboutListShow = false">
-                <span>
-                    关于我们
-                    <img
-                        src="../../assets/xiangshang.png"
-                        alt
-                        class="icon"
-                        v-if="aboutListShow"
-                    />
-                    <img src="../../assets/xiangxia.png" alt class="icon" v-else />
-                </span>
-                <div class="about_list list" v-show="aboutListShow">
-                    <div>
-                        <span>企业文化</span>
+            <router-link :to="{ name: 'about' }">
+                <li @mouseenter="aboutListShow = true" @mouseleave="aboutListShow = false">
+                    <span>
+                        关于我们
+                        <img
+                            src="../../assets/xiangshang.png"
+                            alt
+                            class="icon"
+                            v-if="aboutListShow"
+                        />
+                        <img src="../../assets/xiangxia.png" alt class="icon" v-else />
+                    </span>
+                    <div class="about_list list" v-show="aboutListShow">
+                        <div>
+                            <span>企业文化</span>
+                        </div>
+                        <div>
+                            <span>社会责任</span>
+                        </div>
+                        <div>
+                            <span>加入我们</span>
+                        </div>
+                        <div>
+                            <span>联系我们</span>
+                        </div>
+                        <div>
+                            <span>透明度报告</span>
+                        </div>
                     </div>
-                    <div>
-                        <span>社会责任</span>
-                    </div>
-                    <div>
-                        <span>加入我们</span>
-                    </div>
-                    <div>
-                        <span>联系我们</span>
-                    </div>
-                    <div>
-                        <span>透明度报告</span>
-                    </div>
-                </div>
-            </li>
+                </li>
+            </router-link>
+
             <li>
                 <span>新闻动态</span>
             </li>
             <li>
-                <span>创作服务平台</span>
+                <a href="https://creator.douyin.com/">
+                    <span>创作服务平台</span>
+                </a>
             </li>
             <li>
-                <span>开放平台</span>
+                <a href="https://open.douyin.com/platform">
+                    <span>开放平台</span>
+                </a>
             </li>
             <li @mouseenter="productListShow = true" @mouseleave="productListShow = false">
                 <span>
@@ -67,17 +74,14 @@
             <li @mouseenter="businessListShow = true" @mouseleave="businessListShow = false">
                 <span>
                     认证与合作
-                    <img
-                        src="../../assets/xiangshang.png"
-                        alt
-                        class="icon"
-                        v-if="aboutListShow"
-                    />
-                    <img src="../../assets/xiangxia.png" alt class="icon" v-else />
+                    <img src="../../assets/xiangshang.png" class="icon" v-if="aboutListShow" />
+                    <img src="../../assets/xiangxia.png" class="icon" v-else />
                 </span>
                 <div class="business_list list" v-show="businessListShow">
                     <div>
-                        <span>身份认证</span>
+                        <a href="https://creator.douyin.com/">
+                            <span>身份认证</span>
+                        </a>
                     </div>
                     <div>
                         <span>机构入驻</span>
@@ -86,7 +90,9 @@
                         <span>企业合作</span>
                     </div>
                     <div>
-                        <span>电商入驻</span>
+                        <a href="https://fxg.jinritemai.com/?source=mkt.dygw">
+                            <span>电商入驻</span>
+                        </a>
                     </div>
                 </div>
             </li>
@@ -103,7 +109,7 @@ export default {
             productListShow: false,
             businessListShow: false
         }
-    },
+    }
 }
 </script>
 
@@ -147,7 +153,11 @@ span:hover {
     top: 100px;
     line-height: 40px;
     color: #60656b;
-    width: 100%;
+    background: #fff;
+    z-index: 9;
+}
+.list > div > a {
+    color: #60656b;
 }
 .icon {
     width: 15px;

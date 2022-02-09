@@ -41,6 +41,7 @@ export default {
     widows: 100%;
     min-width: 1200px;
     position: relative;
+    font-size: 14px;
     background-color: #000;
 }
 .top{
@@ -49,7 +50,7 @@ export default {
 }
 .top>div{
     display: inline-block;
-    margin:50px 20px;
+    margin:50px 20px 30px;
 }
 .top>div>a{
     color: #999999;
