@@ -3,20 +3,24 @@
         <img src="../../assets/logo.png" alt class="logo" />
         <ul>
             <li>
-                <span>首页</span>
+                <el-link href target="_blank" class="btn" :underline="false">
+                    <span>首页</span>
+                </el-link>
             </li>
             <router-link :to="{ name: 'about' }">
                 <li @mouseenter="aboutListShow = true" @mouseleave="aboutListShow = false">
-                    <span>
-                        关于我们
-                        <img
-                            src="../../assets/xiangshang.png"
-                            alt
-                            class="icon"
-                            v-if="aboutListShow"
-                        />
-                        <img src="../../assets/xiangxia.png" alt class="icon" v-else />
-                    </span>
+                    <el-link target="_blank" class="btn" :underline="false">
+                        <span>
+                            关于我们
+                            <img
+                                src="../../assets/xiangshang.png"
+                                alt
+                                class="icon"
+                                v-if="aboutListShow"
+                            />
+                            <img src="../../assets/xiangxia.png" alt class="icon" v-else />
+                        </span>
+                    </el-link>
                     <div class="about_list list" v-show="aboutListShow">
                         <div>
                             <span>企业文化</span>
@@ -38,63 +42,97 @@
             </router-link>
 
             <li>
-                <span>新闻动态</span>
+                <el-link href target="_blank" class="btn" :underline="false">
+                    <router-link to="news">
+                        <span>新闻动态</span>
+                    </router-link>
+                </el-link>
             </li>
             <li>
-                <a href="https://creator.douyin.com/">
+                <el-link
+                    href="https://creator.douyin.com/"
+                    target="_blank"
+                    class="btn"
+                    :underline="false"
+                >
                     <span>创作服务平台</span>
-                </a>
+                </el-link>
             </li>
             <li>
-                <a href="https://open.douyin.com/platform">
+                <el-link
+                    href="https://open.douyin.com/platform"
+                    target="_blank"
+                    class="btn"
+                    :underline="false"
+                >
                     <span>开放平台</span>
-                </a>
+                </el-link>
             </li>
             <li @mouseenter="productListShow = true" @mouseleave="productListShow = false">
-                <span>
-                    相关业务
-                    <img
-                        src="../../assets/xiangshang.png"
-                        alt
-                        class="icon"
-                        v-if="aboutListShow"
-                    />
-                    <img src="../../assets/xiangxia.png" alt class="icon" v-else />
-                </span>
+                <el-link href target="_blank" class="btn" :underline="false">
+                    <router-link to="business">
+                        <span>
+                            相关业务
+                            <img
+                                src="../../assets/xiangshang.png"
+                                alt
+                                class="icon"
+                                v-if="aboutListShow"
+                            />
+                            <img src="../../assets/xiangxia.png" alt class="icon" v-else />
+                        </span>
+                    </router-link>
 
-                <div class="product_list list" v-show="productListShow">
-                    <div>
-                        <span>抖音直播</span>
+                    <div class="product_list list" v-show="productListShow">
+                        <div>
+                            <span>抖音直播</span>
+                        </div>
+                        <div>
+                            <span>系列产品</span>
+                        </div>
                     </div>
-                    <div>
-                        <span>系列产品</span>
-                    </div>
-                </div>
+                </el-link>
             </li>
             <li @mouseenter="businessListShow = true" @mouseleave="businessListShow = false">
-                <span>
-                    认证与合作
-                    <img src="../../assets/xiangshang.png" class="icon" v-if="aboutListShow" />
-                    <img src="../../assets/xiangxia.png" class="icon" v-else />
-                </span>
-                <div class="business_list list" v-show="businessListShow">
-                    <div>
-                        <a href="https://creator.douyin.com/">
-                            <span>身份认证</span>
-                        </a>
+                <el-link href target="_blank" class="btn" :underline="false">
+                    <span>
+                        认证与合作
+                        <img
+                            src="../../assets/xiangshang.png"
+                            class="icon"
+                            v-if="aboutListShow"
+                        />
+                        <img src="../../assets/xiangxia.png" class="icon" v-else />
+                    </span>
+                    <div class="business_list list" v-show="businessListShow">
+                        <div>
+                            <el-link
+                                href="https://creator.douyin.com/"
+                                target="_blank"
+                                class="btn"
+                                :underline="false"
+                            >
+                                <span>身份认证</span>
+                            </el-link>
+                        </div>
+                        <div>
+                            <span>机构入驻</span>
+                        </div>
+                        <div>
+                            <span>企业合作</span>
+                        </div>
+                        <div>
+                            <el-link
+                                href="https://fxg.jinritemai.com/?source=mkt.dygw"
+                                target="_blank"
+                                class="btn"
+                                :underline="false"
+                            >
+                                <span>电商入驻</span>
+                            </el-link>
+                        </div>
                     </div>
-                    <div>
-                        <span>机构入驻</span>
-                    </div>
-                    <div>
-                        <span>企业合作</span>
-                    </div>
-                    <div>
-                        <a href="https://fxg.jinritemai.com/?source=mkt.dygw">
-                            <span>电商入驻</span>
-                        </a>
-                    </div>
-                </div>
+                </el-link>
             </li>
             <li></li>
         </ul>
@@ -143,6 +181,16 @@ li {
     color: #000;
     position: relative;
 }
+.el-link.el-link--default {
+    color: #000;
+}
+.el-link {
+    --el-link-font-size: 16px;
+    --el-link-font-weight: normal;
+    --el-link-default-text-color: #000;
+    --el-link-default-active-color: #000;
+    --el-link-disabled-text-color: #000;
+}
 span:hover {
     font-weight: bold;
     cursor: pointer;
@@ -155,9 +203,6 @@ span:hover {
     color: #60656b;
     background: #fff;
     z-index: 9;
-}
-.list > div > a {
-    color: #60656b;
 }
 .icon {
     width: 15px;

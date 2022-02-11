@@ -15,10 +15,19 @@ const routes = [
         path: '/news',
         name: 'news',
         component: import('../views/news.vue')
+      },
+      {
+        path: '/business',
+        name: 'business',
+        component: import('../views/business.vue')
+      },
+      {
+        path: '/details',
+        name: 'details',
+        component: import('../views/details.vue')
       }
     ]
   }
-
 ]
 
 const router = createRouter({

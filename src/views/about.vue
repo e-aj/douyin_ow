@@ -15,15 +15,8 @@
                 <h1>企业文化</h1>
             </div>
             <div class="content">
-                <div
-                    v-for="(item, index) in cultureList"
-                    :key="index"
-                    @click="toPlay(item, index)"
-                >
-                    <img
-                        src="../assets/about/paly.png"
-                        class="play"
-                    />
+                <div v-for="(item, index) in cultureList" :key="index" @click="toPlay(item, index)">
+                    <img src="../assets/about/paly.png" class="play" />
                     <p>{{ item.title }}</p>
                     <img :src="item.imgSrc" class="bg" />
                 </div>
@@ -55,10 +48,10 @@
             <div class="text">
                 <p>和优秀的人，做有挑战的事</p>
                 <p class="small">－JOIN DOUYIN－</p>
-                <a href="https://jobs.bytedance.com/" class="btn">
+                <el-link href="https://jobs.bytedance.com/" target="_blank" class="btn" underline="false">
                     <img src="../assets/about/douyin.png" alt />
                     <span>加入抖音</span>
-                </a>
+                </el-link>
             </div>
             <video
                 src="https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_home_web/medias/joinus.4a001876.mp4"
@@ -475,7 +468,7 @@ export default {
     cursor: pointer;
 }
 .join > .text > .btn > img {
-    width: 16.28px;
+    width: 15px;
     height: 18px;
 }
 .join > .text > .btn > span {
