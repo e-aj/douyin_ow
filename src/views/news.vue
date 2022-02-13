@@ -67,6 +67,36 @@ export default {
                     title: '抖音2022跨年主题曲《好好生活就是美好生活》温暖上线',
                     desc: '跨年将至，抖音推出了2022跨年主题曲《好好生活就是美好生活》，这首歌由周深倾情献唱，唱响...',
                     time: '2021.12.29'
+                },
+                {
+                    imgSrc: 'https://lf26-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/ff117ee3d151cf0edf49750fcb993d6a',
+                    title: '抖字节跳动公益平台正式在抖音上线',
+                    desc: '今天，字节跳动公益平台正式在抖音上线了。根据规定，具有公开募捐资格的慈善组织可以在字节跳动...',
+                    time: '2021.12.29'
+                },
+                {
+                    imgSrc: 'https://lf3-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/b665ac51bf3940a64d76c8a5f2d89668',
+                    title: '抖音直播发布年度故事片：960万平方公里的美好现场',
+                    desc: '在2021年即将迎来尾声时，抖音直播发布了名为《960万平方公里的美好现场》的年度故事片，...',
+                    time: '2021.12.29'
+                },
+                {
+                    imgSrc: 'https://lf26-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/89d30379f918f0a3d0569cc75bf23556',
+                    title: '2021抖音云端毕业季报告',
+                    desc: '2021年的夏天，最后一批90后大学毕业了。这个毕业季，有超过485万人在抖音上发布毕业视...',
+                    time: '2021.12.29'
+                },
+                {
+                    imgSrc: 'https://lf9-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/f1056074e48f47281e015684d068dc78',
+                    title: '头号玩儿家”于谦入驻',
+                    desc: '提起于谦，你会联想到什么？是郭德纲口中的“于三样”，还是网友二创视频中的“于谦意识流捧哏”...',
+                    time: '2021.12.29'
+                },
+                {
+                    imgSrc: 'https://lf3-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/9fd0506e49b50da4307642d9f0464e58',
+                    title: '刘德华在抖音开通首个社交账号',
+                    desc: '喜大普奔！天王刘德华，今天正式宣布⼊驻抖⾳啦！这可是他出道40年以来全球首个社交账号！首支...',
+                    time: '2021.12.29'
                 }
 
             ]
@@ -111,6 +141,7 @@ export default {
     -moz-transition: top 0.2s ease-in-out;
     transition: top 0.2s ease-in-out;
     padding: 0;
+    cursor: pointer;
 }
 .company_news > .content > .contentList > img {
     border-radius: 20px;
@@ -147,5 +178,9 @@ export default {
     right: 0;
     bottom: 0;
     font-weight: normal !important;
+}
+.company_news > .content > .contentList:hover{
+    top: -10px;
+    transition: 0.1s;
 }
 </style>
