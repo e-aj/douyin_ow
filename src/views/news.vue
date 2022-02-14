@@ -111,6 +111,7 @@ export default {
 .news {
     width: 1200px;
     margin: auto;
+    margin-top: 150px;
 }
 .nav {
     margin: 50px 0;

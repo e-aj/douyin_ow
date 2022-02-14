@@ -10,7 +10,7 @@
             <img src="../assets/about/header.2d2ae366.png" alt />
         </div>
         <!-- 企业文化 -->
-        <div class="culture">
+        <div class="culture" id="culture">
             <div class="big_title">
                 <h1>企业文化</h1>
             </div>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <!-- 社会责任 -->
-        <div class="duty">
+        <div class="duty" id="duty">
             <div class="big_title">
                 <h1>社会责任</h1>
                 <ul>
@@ -44,13 +44,18 @@
             </div>
         </div>
         <!-- join -->
-        <div class="join">
+        <div class="join" id="join">
             <div class="text">
                 <p>和优秀的人，做有挑战的事</p>
                 <p class="small">－JOIN DOUYIN－</p>
-                <el-link href="https://jobs.bytedance.com/" target="_blank" class="btn" underline="false">
-                    <img src="../assets/about/douyin.png" alt />
-                    <span>加入抖音</span>
+                <el-link
+                    href="https://jobs.bytedance.com/"
+                    target="_blank"
+                    class="btn"
+                    underline="false"
+                >
+                    <img src="../assets/about/douyin.png" alt class="douyin" />
+                    <span class="joinUs">加入抖音</span>
                 </el-link>
             </div>
             <video
@@ -61,7 +66,7 @@
             ></video>
         </div>
         <!-- 联系我们 -->
-        <div class="contact">
+        <div class="contact" id="contact">
             <div class="big_title">
                 <h1>联系我们</h1>
             </div>
@@ -243,6 +248,15 @@ export default {
             ]
         }
     },
+    created() {
+        this.$nextTick(() => { this.toLocal() })
+    },
+    mounted() {
+        const _this = this
+        _this.$nextTick(function () {
+            window.addEventListener('scroll', _this.handleScroll)
+        })
+    },
     methods: {
         toPlay(item) {
             this.videoShow = true
@@ -255,8 +269,22 @@ export default {
         checkContent(item, index) {
             this.current = index
             this.contentList = item.contentList
+        },
+        toLocal() {
+            // 查找存储的锚点id
+            const Id = localStorage.getItem('toId')
+            const toElement = document.getElementById(Id)
+            // 锚点存在跳转
+            if (Id) {
+                toElement.scrollIntoView(true)
+                window.scrollBy(0, -120)
+            }
         }
 
+    },
+    // 用完后记得将存储的锚点置空，否则会影响其他页面跳转到当前页面
+    onUnmounted() {
+        localStorage.setItem('toId', '')
     }
 }
 </script>
@@ -267,6 +295,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-top: 150px;
 }
 
 .head {
@@ -467,12 +496,13 @@ export default {
     z-index: 200;
     cursor: pointer;
 }
-.join > .text > .btn > img {
+.douyin {
     width: 15px;
-    height: 18px;
 }
-.join > .text > .btn > span {
+.joinUs {
     margin-left: 7px;
+    color: #fff;
+    font-weight: bold;
 }
 .contact {
     width: 1200px;

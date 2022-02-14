@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Head></Head>
+    <Head class="head"></Head>
     <div>
       <router-view></router-view>
     </div>
@@ -18,8 +18,15 @@ export default {
 }
 
 </script>
-<style>
+<style scoped>
 .home {
   height: 100%;
+}
+.head{
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 99;
+  background: #fff;
 }
 </style>

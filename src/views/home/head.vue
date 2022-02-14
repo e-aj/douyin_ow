@@ -22,20 +22,27 @@
                         </span>
                     </el-link>
                     <div class="about_list list" v-show="aboutListShow">
-                        <div>
+                        <div @click="toCulture">
                             <span>企业文化</span>
                         </div>
-                        <div>
+                        <div @click="toDuty">
                             <span>社会责任</span>
                         </div>
-                        <div>
+                        <div @click="toJoin">
                             <span>加入我们</span>
                         </div>
-                        <div>
+                        <div @click="toContact">
                             <span>联系我们</span>
                         </div>
                         <div>
-                            <span>透明度报告</span>
+                            <el-link
+                                href="https://www.douyin.com/transparency"
+                                target="_blank"
+                                class="btn"
+                                :underline="false"
+                            >
+                                <span>透明度报告</span>
+                            </el-link>
                         </div>
                     </div>
                 </li>
@@ -94,7 +101,12 @@
                 </el-link>
             </li>
             <li @mouseenter="businessListShow = true" @mouseleave="businessListShow = false">
-                <el-link href target="_blank" class="btn" :underline="false">
+                <el-link
+                    href="https://creator.douyin.com/"
+                    target="_blank"
+                    class="btn"
+                    :underline="false"
+                >
                     <span>
                         认证与合作
                         <img
@@ -134,7 +146,21 @@
                     </div>
                 </el-link>
             </li>
-            <li></li>
+            <li @mouseenter="qrCodeShow = true" @mouseleave="qrCodeShow = false">
+                <el-link href target="_blank" class="btn" :underline="false">
+                    <img
+                        :src="item"
+                        alt
+                        class="code"
+                        v-for="(item, index) in imgList"
+                        v-show="index === mark"
+                        :key="index"
+                    />
+                </el-link>
+                <div class="qrCode_list list" v-show="qrCodeShow">
+                    <img src="../../assets/code.png" alt />
+                </div>
+            </li>
         </ul>
     </div>
 </template>
@@ -145,8 +171,46 @@ export default {
         return {
             aboutListShow: false,
             productListShow: false,
-            businessListShow: false
+            businessListShow: false,
+            qrCodeShow: false,
+            codeImg: '',
+            imgList: [
+                require('../../assets/icon1.png'),
+                require('../../assets/icon2.png'),
+                require('../../assets/icon3.png')
+            ],
+            mark: 0
         }
+    },
+    methods: {
+        autoPlay() {
+            this.mark++
+            if (this.mark === 3) {
+                this.mark = 0
+            }
+        },
+        play() {
+            setInterval(this.autoPlay, 2000)
+        },
+        toCulture() {
+            localStorage.setItem('toId', 'culture')
+            this.$router.push('/culture')
+        },
+        toDuty() {
+            localStorage.setItem('toId', 'duty')
+            this.$router.push('/duty')
+        },
+        toJoin() {
+            localStorage.setItem('toId', 'join')
+            this.$router.push('/join')
+        },
+        toContact() {
+            localStorage.setItem('toId', 'contact')
+            this.$router.push('/contact')
+        }
+    },
+    created() {
+        this.play()
     }
 }
 </script>
@@ -171,6 +235,7 @@ export default {
 ul {
     height: 100px;
     float: right;
+    margin-right: 100px;
 }
 li {
     padding: 0;
@@ -200,11 +265,18 @@ span:hover {
     position: absolute;
     top: 100px;
     line-height: 40px;
-    color: #60656b;
+    color: #000;
     background: #fff;
     z-index: 9;
 }
 .icon {
     width: 15px;
+}
+.code {
+    width: 30px;
+    float: right;
+}
+.qrCode_list > img {
+    width: 120px;
 }
 </style>

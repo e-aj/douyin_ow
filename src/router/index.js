@@ -7,6 +7,11 @@ const routes = [
     component: import('../views/home/Home.vue'),
     children: [
       {
+        path: '/index',
+        name: 'index',
+        component: import('../views/index.vue')
+      },
+      {
         path: '/about',
         name: 'about',
         component: import('../views/about.vue')
@@ -20,6 +25,11 @@ const routes = [
         path: '/business',
         name: 'business',
         component: import('../views/business.vue')
+      },
+      {
+        path: '/cooperation',
+        name: 'cooperation',
+        component: import('../views/cooperation.vue')
       },
       {
         path: '/details',
